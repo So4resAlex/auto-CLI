@@ -1,6 +1,3 @@
-Seção Meu Drive simplificada com atalhos … 
-Nas próximas semanas, os itens presentes em mais de uma pasta serão substituídos por atalhos. O acesso a pastas e arquivos não mudará.Saiba mais
-
 #!/bin/bash
 
 echo "####Olá Alex, vamos começar?###"
