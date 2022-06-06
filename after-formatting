@@ -1,0 +1,49 @@
+Seção Meu Drive simplificada com atalhos … 
+Nas próximas semanas, os itens presentes em mais de uma pasta serão substituídos por atalhos. O acesso a pastas e arquivos não mudará.Saiba mais
+
+#!/bin/bash
+
+echo "####Olá Alex, vamos começar?###"
+
+echo "Você gostaria de instalar seus programas padrões?  Digite 1)Sim  0)Não"
+read ESCOLHA #aguarda opção inserida pelo usuário
+
+if [ "$ESCOLHA" -eq 1 ]; then  #analisa a escolha digitada pelo usuário
+
+    sudo apt upgrade -y  
+    sudo apt update 
+    sudo apt-get dist-upgrade -y
+    sudo apt-get -f install
+    sudo apt-get autoremove -y
+    sudo apt-get autoclean
+    #comandos de atualização
+    sudo snap install code --classic 
+    apt-get install git
+    sudo snap install discord
+    sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+
+    sudo mkdir -p /etc/apt/keyrings
+
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+    echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+    sudo apt-get update
+    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+    sudo usermod -aG docker $USER
+   
+
+    
+    sleep 1 #aguardar 1 segundo depois exibe a mensagem abaixo
+    echo "Feito Alex, tenha um bom dia!"
+else
+    echo "Falha ao realizar as devidas instalações"
+    sleep 2
+fi
