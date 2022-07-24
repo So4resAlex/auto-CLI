@@ -17,15 +17,6 @@ if [ "$ESCOLHA" -eq 1 ]; then  #analisa a escolha digitada pelo usuário
     sudo snap install code --classic 
     apt-get install git
     sudo snap install discord
-    sudo apt-get install \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release
-
-
-   
-
     
     sleep 1 #aguardar 1 segundo depois exibe a mensagem abaixo
     echo "Feito Alex, tenha um bom dia!"
